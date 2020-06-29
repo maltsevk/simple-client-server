@@ -29,8 +29,8 @@ private:
         CLOSED  = 2
     };
 
-	Status send(int socket, const std::string& message) const;
-	Status receive(int socket, std::string& message) const;
+    Status send(int socket, const std::string& message) const;
+    Status receive(int socket, std::string& message) const;
     void handleConnection(int socket);
 
     int m_socket;
