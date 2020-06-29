@@ -44,8 +44,13 @@ int main(int argc, char** argv)
     if (!server_udp.initialize())
     {
         std::cout << "[-] Failed to initialize UDP server" << std::endl;
+        
         std::cout << "[*] Stopping TCP server thread..." << std::endl;
         server_tcp.stop();
+        
+        std::cout << "[*] Waiting for TCP server thread..." << std::endl;
+        server_tcp_thread.join();
+       
         return 1;
     }
 
